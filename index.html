@@ -15,7 +15,7 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f5f5f5; /* Світлий фон */
+            background-color: #f5f5f5;
             color: #333;
         }
 
@@ -27,36 +27,63 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        header .logo {
+        .logo {
             font-size: 1.5rem;
             font-weight: bold;
         }
 
-        header nav {
+        nav {
             display: flex;
             gap: 15px;
         }
 
-        header nav a {
+        nav a {
             color: white;
             text-decoration: none;
             font-size: 1rem;
             transition: color 0.3s ease;
         }
 
-        header nav a:hover {
-            color: #ff9900; /* Помаранчевий акцент */
+        nav a:hover {
+            color: #ff9900;
         }
 
-        header .contacts {
-            font-size: 0.9rem;
+        /* Гамбургер-меню */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
         }
 
-        header .contacts span {
-            display: block;
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            color: #ff9900;
         }
 
         /* Основний контент */
@@ -79,9 +106,11 @@
         }
 
         .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
             gap: 15px;
+            overflow-x: auto; /* Свайп для мобільних */
+            padding-bottom: 10px;
+            scroll-snap-type: x mandatory; /* Свайп із фіксацією */
         }
 
         .card {
@@ -91,6 +120,8 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 200px; /* Ширина для горизонтального гортання */
+            scroll-snap-align: center;
         }
 
         .card:hover {
@@ -108,7 +139,6 @@
             color: #ff9900;
         }
 
-        /* Кнопки "Більше" */
         .more-btn {
             display: inline-block;
             margin-top: 15px;
@@ -146,26 +176,54 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Мобільні стилі */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Приховуємо навігацію */
+            }
+
+            .hamburger {
+                display: flex; /* Відображаємо гамбургер */
+            }
+
+            .mobile-menu.active {
+                display: flex; /* Відкриваємо меню */
+            }
+
+            .cards {
+                gap: 10px;
+            }
+
+            .card {
+                min-width: 160px; /* Компактніші карточки */
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Хедер -->
     <header>
         <div class="logo">LOGO</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
             <a href="#delivery">Доставка</a>
             <a href="#orders">Замовлення</a>
             <a href="#setup">Встановлення</a>
         </nav>
-        <div class="contacts">
-            <span>+380988088088</span>
-            <span>blablabla@gmail.com</span>
+        <div class="mobile-menu">
+            <a href="#delivery">Доставка</a>
+            <a href="#orders">Замовлення</a>
+            <a href="#setup">Встановлення</a>
         </div>
     </header>
 
     <!-- Основний контент -->
     <div class="container">
-        <!-- Категорія Лавки -->
         <section class="category" id="lavky">
             <h2>Лавки</h2>
             <div class="cards">
@@ -176,30 +234,6 @@
             </div>
             <a href="#" class="more-btn">Більше →</a>
         </section>
-
-        <!-- Категорія Опалубки -->
-        <section class="category" id="opalubky">
-            <h2>Опалубки</h2>
-            <div class="cards">
-                <div class="card"><a href="#">Опалубка номер 1</a></div>
-                <div class="card"><a href="#">Опалубка номер 2</a></div>
-                <div class="card"><a href="#">Опалубка номер 3</a></div>
-                <div class="card"><a href="#">Опалубка номер 4</a></div>
-            </div>
-            <a href="#" class="more-btn">Більше →</a>
-        </section>
-
-        <!-- Категорія Хрести -->
-        <section class="category" id="hresty">
-            <h2>Хрести</h2>
-            <div class="cards">
-                <div class="card"><a href="#">Хрест номер 1</a></div>
-                <div class="card"><a href="#">Хрест номер 2</a></div>
-                <div class="card"><a href="#">Хрест номер 3</a></div>
-                <div class="card"><a href="#">Хрест номер 4</a></div>
-            </div>
-            <a href="#" class="more-btn">Більше →</a>
-        </section>
     </div>
 
     <!-- Футер -->
@@ -207,5 +241,12 @@
         <p>LOGO | Доставка | Замовлення | Встановлення</p>
         <p>+380988088088 | <a href="mailto:blablabla@gmail.com">blablabla@gmail.com</a></p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
