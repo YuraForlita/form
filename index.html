@@ -1,229 +1,211 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Адаптивний Сайт</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оновлений Дизайн</title>
+    <style>
+        /* Скидання стилів */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5; /* Світлий фон */
+            color: #333;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: #333;
-    }
+        /* Хедер */
+        header {
+            background-color: #444;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    header .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
 
-    header nav {
-      display: flex;
-      gap: 20px;
-    }
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
 
-    header nav a {
-      color: #fff;
-      text-decoration: none;
-    }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
 
-    header .contact {
-      font-size: 14px;
-    }
+        header nav a:hover {
+            color: #ff9900; /* Помаранчевий акцент */
+        }
 
-    header .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
+        header .contacts {
+            font-size: 0.9rem;
+        }
 
-    header .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      margin: 4px 0;
-    }
+        header .contacts span {
+            display: block;
+        }
 
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 20px;
-    }
+        /* Основний контент */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
 
-    .categories button {
-      padding: 10px 20px;
-      border: none;
-      background: #444;
-      color: #fff;
-      cursor: pointer;
-    }
+        .category {
+            margin-bottom: 30px;
+        }
 
-    .categories button:hover {
-      background: #555;
-    }
+        .category h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff9900;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-    .products {
-      padding: 20px;
-    }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
 
-    .products .category {
-      margin-bottom: 30px;
-    }
+        .card {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .products .category h2 {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-    .products .category h2 a {
-      font-size: 14px;
-      color: #fff;
-      text-decoration: none;
-    }
+        .card a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
 
-    .product-list {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-    }
+        .card a:hover {
+            color: #ff9900;
+        }
 
-    .product {
-      min-width: 150px;
-      height: 150px;
-      background: #555;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
+        /* Кнопки "Більше" */
+        .more-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #444;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #333;
-    }
+        .more-btn:hover {
+            background: #ff9900;
+        }
 
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      header nav {
-        display: none;
-      }
+        /* Футер */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 15px;
+            margin-top: 30px;
+        }
 
-      header .hamburger {
-        display: flex;
-      }
+        footer p {
+            font-size: 0.9rem;
+        }
 
-      .mobile-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #333;
-        padding: 20px;
-      }
+        footer a {
+            color: #ff9900;
+            text-decoration: none;
+        }
 
-      .mobile-menu a {
-        margin-bottom: 10px;
-      }
-
-      .mobile-menu.show {
-        display: flex;
-      }
-    }
-  </style>
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">LOGO</div>
-    <nav>
-      <a href="#">Доставка</a>
-      <a href="#">Замовлення</a>
-      <a href="#">Встановлення</a>
-    </nav>
-    <div class="contact">+380988088088<br>blablabla@gmail.com</div>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+    <!-- Хедер -->
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <a href="#delivery">Доставка</a>
+            <a href="#orders">Замовлення</a>
+            <a href="#setup">Встановлення</a>
+        </nav>
+        <div class="contacts">
+            <span>+380988088088</span>
+            <span>blablabla@gmail.com</span>
+        </div>
+    </header>
+
+    <!-- Основний контент -->
+    <div class="container">
+        <!-- Категорія Лавки -->
+        <section class="category" id="lavky">
+            <h2>Лавки</h2>
+            <div class="cards">
+                <div class="card"><a href="#">Лавка номер 1</a></div>
+                <div class="card"><a href="#">Лавка номер 2</a></div>
+                <div class="card"><a href="#">Лавка номер 3</a></div>
+                <div class="card"><a href="#">Лавка номер 4</a></div>
+            </div>
+            <a href="#" class="more-btn">Більше →</a>
+        </section>
+
+        <!-- Категорія Опалубки -->
+        <section class="category" id="opalubky">
+            <h2>Опалубки</h2>
+            <div class="cards">
+                <div class="card"><a href="#">Опалубка номер 1</a></div>
+                <div class="card"><a href="#">Опалубка номер 2</a></div>
+                <div class="card"><a href="#">Опалубка номер 3</a></div>
+                <div class="card"><a href="#">Опалубка номер 4</a></div>
+            </div>
+            <a href="#" class="more-btn">Більше →</a>
+        </section>
+
+        <!-- Категорія Хрести -->
+        <section class="category" id="hresty">
+            <h2>Хрести</h2>
+            <div class="cards">
+                <div class="card"><a href="#">Хрест номер 1</a></div>
+                <div class="card"><a href="#">Хрест номер 2</a></div>
+                <div class="card"><a href="#">Хрест номер 3</a></div>
+                <div class="card"><a href="#">Хрест номер 4</a></div>
+            </div>
+            <a href="#" class="more-btn">Більше →</a>
+        </section>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#">Доставка</a>
-      <a href="#">Замовлення</a>
-      <a href="#">Встановлення</a>
-      <div class="contact">+380988088088<br>blablabla@gmail.com</div>
-    </div>
-  </header>
 
-  <div class="categories">
-    <button>Лавки</button>
-    <button>Опалубки</button>
-    <button>Хрести</button>
-  </div>
-
-  <div class="products">
-    <div class="category">
-      <h2>Лавки <a href="#">більше →</a></h2>
-      <div class="product-list">
-        <div class="product">Лавка номер 1</div>
-        <div class="product">Лавка номер 2</div>
-        <div class="product">Лавка номер 3</div>
-        <div class="product">Лавка номер 4</div>
-      </div>
-    </div>
-
-    <div class="category">
-      <h2>Опалубки <a href="#">більше →</a></h2>
-      <div class="product-list">
-        <div class="product">Опалубка номер 1</div>
-        <div class="product">Опалубка номер 2</div>
-        <div class="product">Опалубка номер 3</div>
-        <div class="product">Опалубка номер 4</div>
-      </div>
-    </div>
-
-    <div class="category">
-      <h2>Хрести <a href="#">більше →</a></h2>
-      <div class="product-list">
-        <div class="product">Хрест номер 1</div>
-        <div class="product">Хрест номер 2</div>
-        <div class="product">Хрест номер 3</div>
-        <div class="product">Хрест номер 4</div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    LOGO<br>
-    Доставка | Замовлення | Встановлення<br>
-    +380988088088 | blablabla@gmail.com
-  </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('show');
-    });
-  </script>
+    <!-- Футер -->
+    <footer>
+        <p>LOGO | Доставка | Замовлення | Встановлення</p>
+        <p>+380988088088 | <a href="mailto:blablabla@gmail.com">blablabla@gmail.com</a></p>
+    </footer>
 </body>
 </html>
