@@ -14,27 +14,25 @@
   
   /* Хедер */
   header {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #444;
+    color: white;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1200px;
-    margin: 0 auto; /* Центрування хедера */
   }
   
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 0; /* Логотип прижато до лівого краю */
+    margin-left: 18vw;
   }
   
   nav {
     display: flex;
     gap: 35px;
+    margin-right: 18vw;
     align-items: center;
-    margin-right: 0; /* Навігація прижата до правого краю */
   }
   
   nav a {
