@@ -20,19 +20,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1200px;
+    margin: 0 auto; /* Центрування хедера */
   }
   
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 18vw;
+    margin-left: 0; /* Логотип прижато до лівого краю */
   }
   
   nav {
     display: flex;
     gap: 35px;
-    margin-right: 18vw;
     align-items: center;
+    margin-right: 0; /* Навігація прижата до правого краю */
   }
   
   nav a {
