@@ -14,8 +14,8 @@
   
   /* Хедер */
   header {
-    background-color: #444;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
