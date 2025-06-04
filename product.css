@@ -279,8 +279,9 @@
     }
 
     .product-info {
-        order: 2;
-        text-align: center;
+    order: 2;
+    text-align: left;
+    padding: 0 10px;
     }
 
     .product-info h1 {
