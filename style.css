@@ -19,7 +19,16 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+body.grid-view .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
 
+@media (max-width: 768px) {
+  body.grid-view .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 main {
   flex: 1;
 }
@@ -59,7 +68,6 @@ header {
 .logo a:hover {
   color: #ff9900;
 }
-/* 🔗 Навігація */
 nav {
   display: flex;
   gap: 35px;
@@ -78,7 +86,6 @@ nav a:hover {
   color: #ff9900;
 }
 
-/* 🍔 Гамбургер-меню */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -125,14 +132,12 @@ nav a:hover {
   color: #ff9900;
 }
 
-/* 📦 Основний контент */
 .container {
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 15px;
 }
 
-/* 📁 Категорії */
 .category {
   margin-bottom: 30px;
 }
@@ -145,7 +150,6 @@ nav a:hover {
   padding-bottom: 5px;
 }
 
-/* 🧩 Картки */
 .cards {
   display: flex;
   gap: 15px;
@@ -191,7 +195,6 @@ nav a:hover {
   color: #ff9900;
 }
 
-/* 🔘 Кнопка "Більше" */
 .more-btn {
   display: inline-block;
   margin-top: 15px;
@@ -208,7 +211,6 @@ nav a:hover {
   background: #ff9900;
 }
 
-/* 🦶 Футер */
 footer {
   background-color: #333;
   color: white;
@@ -229,7 +231,6 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* 📱 Мобільні стилі */
 @media (max-width: 768px) {
   nav {
     display: none;
@@ -279,7 +280,6 @@ footer a:hover {
   }
 }
 
-/* 🛒 Сторінка товару */
 .product-container {
   max-width: 1200px;
   margin: 40px auto;
@@ -337,7 +337,6 @@ footer a:hover {
   color: #3e3e3e;
 }
 
-/* 📱 Адаптація сторінки товару */
 @media (max-width: 768px) {
   .product-container {
     flex-direction: column;
@@ -386,5 +385,86 @@ footer a:hover {
 
   .product-info p {
     font-size: 16px;
+  }
+}
+
+.delivery-hero {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f4f4f4;
+}
+
+.delivery-hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.delivery-methods {
+  padding: 30px 20px;
+  background: #fff;
+}
+
+.methods {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+}
+
+.method svg {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.delivery-prices {
+  padding: 30px 20px;
+  background: #fafafa;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.region {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.faq {
+  padding: 30px 20px;
+  background: #fff;
+}
+
+.faq details {
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .region-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .methods {
+    justify-content: center;
+  }
+
+  .delivery-hero h1 {
+    font-size: 28px;
   }
 }
