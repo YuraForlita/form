@@ -150,6 +150,67 @@ nav a:hover {
   padding-bottom: 5px;
 }
 
+.cards {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: auto;
+  scroll-snap-align: center;
+}
+
+.card img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.card a:hover {
+  color: #ff9900;
+}
+
+.more-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #444;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.more-btn:hover {
+  background: #ff9900;
+}
+
 footer {
   background-color: #333;
   color: white;
@@ -168,6 +229,39 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .header-container {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
 }
 
 section {
