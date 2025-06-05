@@ -5,13 +5,24 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   line-height: 1.6;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   background-color: #f5f5f5;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
+main {
+  flex: 1;
+}
 /* 🧭 Хедер */
 header {
   background-color: #444;
@@ -154,6 +165,16 @@ nav a:hover {
   scroll-snap-align: center;
 }
 
+.card img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -254,8 +275,10 @@ footer a:hover {
 }
 
 .main-image img {
-  width: 100%;
+  width: 580px;
+  height: 580px;
   border-radius: 10px;
+  object-fit: contain;
 }
 
 .thumbnail-images {
